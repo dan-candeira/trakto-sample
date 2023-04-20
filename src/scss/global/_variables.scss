@@ -1,0 +1,23 @@
+@use '../tokens/colors' as colors;
+
+:root {
+	@each $color, $value in colors.$colors {
+		--color-#{$color}: #{$value};
+	}
+
+	--gutter: var(--space-s-m);
+	--border-radius: var(--size-step-1);
+	--transition-base: 250ms ease;
+	--transition-movement: 200ms linear;
+	--transition-fade: 200ms ease;
+	--transition-bounce: 500ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
+	--tracking: -0.05ch;
+	--tracking-s: -0.075ch;
+	--shadow-color: 195deg 56% 7%;
+	--shadow-elevation-medium: 2px 4px 8px hsl(var(--shadow-color) / 0.5);
+}
+
+.cluster,
+.grid {
+	gap: var(--gutter, var(--space-s-l));
+}

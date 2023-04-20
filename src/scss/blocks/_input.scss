@@ -1,0 +1,23 @@
+.input {
+	display: flex;
+	flex-direction: column;
+
+	&:focus-within {
+		span {
+			color: var(--color-brand-trakto);
+		}
+	}
+
+	input {
+		border: 1px solid transparent;
+		height: 2.4rem;
+		padding: 1rem;
+		border-radius: 4px;
+		background-color: var(--color-neutral-white);
+		outline: 0;
+
+		&:focus {
+			border-color: var(--color-brand-trakto);
+		}
+	}
+}

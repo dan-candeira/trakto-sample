@@ -10,7 +10,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
-	declarations: [AppComponent, MainComponent, LoginComponent, NotFoundComponent],
+	declarations: [
+		AppComponent,
+		MainComponent,
+		LoginComponent,
+		NotFoundComponent,
+	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,

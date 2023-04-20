@@ -1,8 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-	selector: 'trakto-layout',
-	templateUrl: './layout.html',
+	selector: 'ng-container.trakto-icon, i.trakto-icon',
+	templateUrl: './trakto.html',
 	encapsulation: ViewEncapsulation.None,
 })
-export class Layout {}
+export class Trakto {}

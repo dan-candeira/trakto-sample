@@ -1,0 +1,31 @@
+.nav {
+	padding: 0.8rem 0 0.3rem 0;
+	background-color: var(--nav-bg-color, var(--color-neutral-white));
+	color: var(--nav-fg-color, var(--color-neutral-cloudy));
+
+	h1 {
+		width: 12ch;
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+
+		> * + * {
+			margin-left: 2rem;
+
+			display: flex;
+			align-items: center;
+
+			gap: 2rem;
+
+			&::before {
+				content: '';
+				display: block;
+				height: 1rem;
+				width: 1px;
+				background-color: currentColor;
+			}
+		}
+	}
+}

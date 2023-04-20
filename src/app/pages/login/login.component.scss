@@ -1,3 +1,27 @@
 :host {
-	background-color: var(--color-light-shade);
+	display: block;
+
+	h1 {
+		width: 10ch;
+	}
+
+	h2 {
+		margin-top: 2.1rem;
+	}
+
+	main {
+		min-height: 100vh;
+		display: flex;
+
+		justify-content: center;
+		align-items: center;
+	}
+
+	form {
+		margin-top: 1.5rem;
+	}
+
+	form > * + * {
+		margin-top: 1.5rem;
+	}
 }

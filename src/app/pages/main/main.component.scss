@@ -1,0 +1,9 @@
+:host {
+	--nav-bg-color: var(--color-neutral-dark);
+	--nav-fg-color: var(--color-neutral-light);
+	--main-bg-color: var(--color-neutral-darker);
+
+	section {
+		min-height: calc(100vh - 4.9rem);
+	}
+}
