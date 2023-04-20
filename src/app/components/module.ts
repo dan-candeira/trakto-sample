@@ -4,12 +4,11 @@ import { Layout } from './layout/layout';
 import { DropdownModule } from './dropdown/module';
 import { LoadingSpinner } from './loading-spinner/loading-spinner';
 import { RouterModule } from '@angular/router';
-import { Trakto } from './trakto/trakto';
-import { TraktoEdu } from './trakto-edu/trakto-edu';
+import { IconsModule } from './icons/module';
 
 @NgModule({
-	declarations: [Layout, LoadingSpinner, Trakto, TraktoEdu],
-	exports: [Layout, LoadingSpinner, Trakto, TraktoEdu],
-	imports: [CommonModule, DropdownModule, RouterModule],
+	declarations: [Layout, LoadingSpinner],
+	exports: [Layout, LoadingSpinner],
+	imports: [CommonModule, DropdownModule, RouterModule, IconsModule],
 })
 export class ComponentsModule {}

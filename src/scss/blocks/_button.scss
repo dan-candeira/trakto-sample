@@ -1,4 +1,8 @@
 .button {
 	all: unset;
 	display: block;
+
+	&[data-variation='icon'] i {
+		width: 1.5rem;
+	}
 }

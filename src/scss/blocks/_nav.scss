@@ -1,5 +1,5 @@
 .nav {
-	padding: 0.8rem 0 0.3rem 0;
+	padding: 0.9rem 0 0.8rem 0;
 	background-color: var(--nav-bg-color, var(--color-neutral-white));
 	color: var(--nav-fg-color, var(--color-neutral-cloudy));
 
@@ -26,6 +26,16 @@
 				width: 1px;
 				background-color: currentColor;
 			}
+		}
+	}
+
+	&__date {
+		display: flex;
+		align-items: center;
+		gap: var(--gutter, 0.5rem);
+
+		i {
+			width: 1.5rem;
 		}
 	}
 }
