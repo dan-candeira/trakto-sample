@@ -9,7 +9,7 @@
 		<div class="nav__actions">
 			<span class="nav__date">
 				<i class="calendar-icon"></i>
-				<time> {{ today | date:'dd/MM/yyyy' }}</time>
+				<time> {{ today$ | async | date:'dd/MM/yyyy' }}</time>
 			</span>
 			<trakto-dropdown>
 				<button

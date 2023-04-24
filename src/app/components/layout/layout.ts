@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { BehaviorSubject, Observable, map, timer } from 'rxjs';
 
 @Component({
 	selector: 'trakto-layout',
@@ -6,5 +7,5 @@ import { Component, ViewEncapsulation } from '@angular/core';
 	encapsulation: ViewEncapsulation.None,
 })
 export class Layout {
-	today = new Date();
+	today$: Observable<Date> = timer(0, 3600000).pipe(map(() => new Date()));
 }
