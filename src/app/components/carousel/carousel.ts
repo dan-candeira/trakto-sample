@@ -8,6 +8,7 @@ import {
 	QueryList,
 	OnDestroy,
 	ElementRef,
+	ViewEncapsulation,
 } from '@angular/core';
 import { Subject, debounceTime, startWith, takeUntil } from 'rxjs';
 import { CarouselButtonNext, CarouselButtonPrevious } from './carousel-buttons';
@@ -17,6 +18,7 @@ import { CarouselItem } from './carousel-item';
 	selector: 'trakto-carousel',
 	template: `<ng-content></ng-content>`,
 	styles: [],
+	encapsulation: ViewEncapsulation.None,
 })
 export class Carousel implements OnInit, AfterContentInit, OnDestroy {
 	// next and previous buttons input
@@ -34,30 +36,23 @@ export class Carousel implements OnInit, AfterContentInit, OnDestroy {
 		this.resizeEvent$.next(event);
 	}
 
-	nextIndex: number | undefined;
-	previousIndex: number | undefined;
+	currentIndex: number = 0;
+	visibleAmount: number = 0;
 
-	constructor(private elementRef: ElementRef<HTMLElement>) {}
+	constructor(private elementRef: ElementRef<HTMLElement>) {
+		this.elementRef.nativeElement.classList.add('carousel');
+	}
 
 	ngOnInit(): void {
 		if (this.carouselPrevious) {
 			this.carouselPrevious.clicked.subscribe((e) => {
-				console.log('Previous', e);
-				if (this.previousIndex === undefined) {
-					return;
-				}
-				this.carouselItems.toArray()[this.previousIndex].setFocus();
+				this.previous();
 			});
 		}
 
 		if (this.carrouselNext) {
 			this.carrouselNext.clicked.subscribe((e) => {
-				console.log('Next', e);
-				if (!this.nextIndex) {
-					return;
-				}
-				console.log(this.carouselItems.toArray()[this.nextIndex]);
-				this.carouselItems.toArray()[this.nextIndex].setFocus();
+				this.next();
 			});
 		}
 
@@ -65,14 +60,16 @@ export class Carousel implements OnInit, AfterContentInit, OnDestroy {
 			.pipe(takeUntil(this.destroy$), debounceTime(300))
 			.subscribe(() => {
 				this.updateCarousel();
+				this.carouselItems
+					.toArray()[0]
+					?.elementRef.nativeElement.focus();
 			});
 	}
 
 	ngAfterContentInit(): void {
 		this.carouselItems.changes
 			.pipe(startWith(this.carouselItems), takeUntil(this.destroy$))
-			.subscribe((carouselItems: QueryList<CarouselItem>) => {
-				console.log(carouselItems.length);
+			.subscribe(() => {
 				this.updateCarousel();
 			});
 	}
@@ -84,17 +81,24 @@ export class Carousel implements OnInit, AfterContentInit, OnDestroy {
 	updateCarousel(): void {
 		const visibleWidth = this.elementRef.nativeElement.clientWidth;
 		const carouselItem = this.carouselItems.toArray()[0];
-		const visibleItemsAmount = Math.floor(
+		this.visibleAmount = Math.floor(
 			visibleWidth / carouselItem.elementRef.nativeElement.clientWidth
 		);
 
-		// check calculations
-		if (this.nextIndex === undefined) {
-			this.previousIndex = 0;
-		} else {
-			this.previousIndex = this.nextIndex;
-		}
+		this.currentIndex = 0;
+	}
 
-		this.nextIndex = visibleItemsAmount;
+	next(): void {
+		const _index = this.currentIndex + this.visibleAmount;
+		this.currentIndex = Math.min(_index, this.carouselItems.length - 1);
+
+		this.carouselItems.toArray()[this.currentIndex]?.setFocus();
+	}
+
+	previous(): void {
+		const _index = this.currentIndex - this.visibleAmount;
+		this.currentIndex = Math.max(_index, 0);
+
+		this.carouselItems.toArray()[this.currentIndex]?.setFocus();
 	}
 }
