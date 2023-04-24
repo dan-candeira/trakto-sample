@@ -1,0 +1,19 @@
+:host {
+	// logo color
+	--fill-color: var(--color-neutral-darkest);
+
+	trakto-carousel {
+		display: flex;
+		gap: 0.5rem;
+		overflow-x: hidden;
+	}
+
+	.card {
+		width: 20ch;
+		height: 100px;
+		background-color: cornflowerblue;
+		flex-shrink: 0;
+		text-align: center;
+		border-radius: 8px;
+	}
+}

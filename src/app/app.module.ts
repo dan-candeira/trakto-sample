@@ -8,6 +8,7 @@ import { MainComponent } from './pages/main/main.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { DidacticMaterialsComponent } from './pages/didactic-materials/didactic-materials.component';
 
 @NgModule({
 	declarations: [
@@ -15,6 +16,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 		MainComponent,
 		LoginComponent,
 		NotFoundComponent,
+  DidacticMaterialsComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -3,7 +3,14 @@ import { Component, ViewEncapsulation } from '@angular/core';
 @Component({
 	selector: 'ng-container.calendar-icon, i.calendar-icon',
 	template: `
-		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+		<svg
+			aria-hidden="true"
+			focusable="false"
+			style="pointer-events: none;"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+		>
 			<path
 				d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z"
 				stroke="currentColor"

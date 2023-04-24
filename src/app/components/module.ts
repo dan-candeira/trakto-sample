@@ -5,10 +5,23 @@ import { DropdownModule } from './dropdown/module';
 import { LoadingSpinner } from './loading-spinner/loading-spinner';
 import { RouterModule } from '@angular/router';
 import { IconsModule } from './icons/module';
+import { CarouselModule } from './carousel/module';
 
 @NgModule({
 	declarations: [Layout, LoadingSpinner],
-	exports: [Layout, LoadingSpinner],
-	imports: [CommonModule, DropdownModule, RouterModule, IconsModule],
+	imports: [
+		CommonModule,
+		DropdownModule,
+		RouterModule,
+		IconsModule,
+		CarouselModule,
+	],
+	exports: [
+		Layout,
+		LoadingSpinner,
+		IconsModule,
+		DropdownModule,
+		CarouselModule,
+	],
 })
 export class ComponentsModule {}

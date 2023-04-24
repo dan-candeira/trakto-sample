@@ -9,13 +9,31 @@
 		<div class="nav__actions">
 			<span class="nav__date">
 				<i class="calendar-icon"></i>
-				<time> 20/04/2023</time>
+				<time> {{ today | date:'dd/MM/yyyy' }}</time>
 			</span>
-			<button type="button" class="button" data-variation="icon">
-				<span class="vh">Notificações</span>
-				<i class="notification-icon"></i>
-			</button>
-			<trakto-dropdown> </trakto-dropdown>
+			<trakto-dropdown>
+				<button
+					traktoDropdownButton
+					class="button"
+					data-variation="icon"
+				>
+					<span class="vh">Notificações</span>
+					<i class="notification-icon"></i>
+				</button>
+				<div traktoDropdownContent class="bg-color-neutral-white">
+					this is my content
+				</div>
+			</trakto-dropdown>
+
+			<trakto-dropdown>
+				<button class="nav__avatar" traktoDropdownButton>
+					<img class="avatar" src="assets/avatar.png" alt="" />
+					<i class="caret-down-icon"></i>
+				</button>
+				<div traktoDropdownContent class="bg-color-neutral-white">
+					this is my content
+				</div>
+			</trakto-dropdown>
 		</div>
 	</nav>
 </header>

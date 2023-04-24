@@ -5,4 +5,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 	templateUrl: './layout.html',
 	encapsulation: ViewEncapsulation.None,
 })
-export class Layout {}
+export class Layout {
+	today = new Date();
+}

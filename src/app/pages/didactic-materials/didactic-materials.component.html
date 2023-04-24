@@ -1,0 +1,11 @@
+<trakto-layout>
+	<section class="wrapper">
+		<button traktoCarouselNext #next>Next</button>
+		<button traktoCarouselPrevious #previous>Previous</button>
+		<trakto-carousel [carrouselNext]="next" [carouselPrevious]="previous">
+			<trakto-carousel-item class="card" *ngFor="let item of fakeData">
+				{{ item }}
+			</trakto-carousel-item>
+		</trakto-carousel>
+	</section>
+</trakto-layout>
