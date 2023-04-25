@@ -4,7 +4,7 @@ export class AuthService {
 	constructor() {}
 
 	public isAuthenticated(): boolean {
-		const token = localStorage.getItem('trakto-token');
+		const token = localStorage.getItem('access_token');
 		// Check whether the token is expired and return
 		// true or false
 		if (token) {

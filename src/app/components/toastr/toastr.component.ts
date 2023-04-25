@@ -59,5 +59,7 @@ export class ToastrComponent {
 	_body!: string;
 	_templateRef!: TemplateRef<any>;
 
-	constructor(private elementRef: ElementRef<HTMLElement>) {}
+	constructor(private elementRef: ElementRef<HTMLElement>) {
+		elementRef.nativeElement.classList.add('toastr');
+	}
 }

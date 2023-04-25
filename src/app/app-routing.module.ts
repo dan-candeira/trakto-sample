@@ -5,6 +5,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DidacticMaterialsComponent } from './pages/didactic-materials/didactic-materials.component';
+import { LoggedGuard } from './guards/logged.guard';
 
 const routes: Routes = [
 	{
@@ -15,6 +16,7 @@ const routes: Routes = [
 	{
 		path: 'login',
 		component: LoginComponent,
+		canActivate: [LoggedGuard],
 	},
 	{
 		path: 'material-didatico',

@@ -1,4 +1,4 @@
-trakto-toastr {
+.toastr {
 	display: block;
 	visibility: hidden;
 	opacity: 0;
@@ -6,6 +6,7 @@ trakto-toastr {
 	position: fixed;
 	bottom: 2rem;
 	right: 0;
+	border-radius: 4px;
 
 	max-width: 35ch;
 	padding: 1rem 1.2rem;

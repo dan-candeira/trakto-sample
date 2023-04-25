@@ -13,6 +13,10 @@ main {
 }
 
 trakto-layout {
+	.dropdown-content {
+		background-color: var(--nav-bg-color);
+	}
+
 	&[data-variation='light'] {
 		--nav-bg-color: var(--color-neutral-white);
 		--nav-fg-color: var(--color-neutral-cloudy);
@@ -36,6 +40,7 @@ trakto-layout {
 
 // compositions
 @import 'scss/compositions/repel';
+@import 'scss/compositions/grid';
 
 // building blocks
 @import 'scss/blocks/button';
@@ -50,3 +55,5 @@ trakto-layout {
 @import 'scss/blocks/dropdown';
 @import 'scss/blocks/carousel';
 @import 'scss/blocks/content-list';
+@import 'scss/blocks/module-card';
+@import 'scss/blocks/notifications-dropdown';

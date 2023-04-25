@@ -1,0 +1,35 @@
+.module-card {
+	a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		text-decoration: none;
+		color: var(--color-neutral-white);
+	}
+
+	img {
+		border-radius: 50%;
+	}
+
+	&__image-ring {
+		display: grid;
+		grid-template-columns: repeat(auto-fit);
+
+		margin-top: 2rem;
+		background-color: var(--color-inner-ring, var(--color-background-dark));
+
+		border: 1.85rem solid var(--color-outer-ring, var(--color-neutral-gray));
+
+		border-radius: 50%;
+
+		width: 22rem;
+		height: 22rem;
+	}
+
+	&__title {
+		font-size: 3rem;
+		font-weight: 700;
+		white-space: nowrap;
+	}
+}

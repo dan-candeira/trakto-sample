@@ -42,7 +42,7 @@ export class LoginComponent implements OnDestroy {
 		this.subscription = this.loginService.login(_loginData).subscribe({
 			next: (resp) => {
 				console.log({ resp });
-				localStorage.setItem('access_token', resp.access);
+				localStorage.setItem('access_token', resp.access_token);
 				setTimeout(() => {
 					this.loading = false;
 					this.router.navigate(['/']);
@@ -52,10 +52,14 @@ export class LoginComponent implements OnDestroy {
 				this.loading = false;
 
 				if (_error.status === 401) {
-					this.toastr.error({
-						title: 'Erro ao realizar login',
-						body: `Dados de login inválidos. Por favor verifique se os dados que você preencheu estão corretos e tente novamente.`,
-					});
+					this.toastr.error(
+						{
+							title: 'Erro ao realizar login',
+							body: `Dados de login inválidos.
+							Por favor verifique se os dados que você preencheu estão corretos e tente novamente.`,
+						},
+						5000
+					);
 
 					return;
 				}

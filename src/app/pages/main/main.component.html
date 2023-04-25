@@ -1,7 +1,14 @@
 <trakto-layout data-variation="dark">
-	<section>
-		<div class="wrapper">
-			<h2 class="color-neutral-white">Main page</h2>
+	<section class="wrapper">
+		<div class="grid" data-layout="col-4">
+			<article *ngFor="let module of modules">
+				<trakto-module-card
+					[image]="module.image"
+					[title]="module.title"
+					[link]="module.link"
+					[style]="module.colorStyles"
+				></trakto-module-card>
+			</article>
 		</div>
 	</section>
 </trakto-layout>

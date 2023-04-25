@@ -7,9 +7,15 @@ import { RouterModule } from '@angular/router';
 import { IconsModule } from './icons/module';
 import { CarouselModule } from './carousel/module';
 import { ToastrComponent } from './toastr/toastr.component';
+import { ModuleCardComponent } from './module-card/module-card';
 
 @NgModule({
-	declarations: [Layout, LoadingSpinner, ToastrComponent],
+	declarations: [
+		Layout,
+		LoadingSpinner,
+		ToastrComponent,
+		ModuleCardComponent,
+	],
 	imports: [
 		CommonModule,
 		DropdownModule,
@@ -24,6 +30,7 @@ import { ToastrComponent } from './toastr/toastr.component';
 		DropdownModule,
 		CarouselModule,
 		ToastrComponent,
+		ModuleCardComponent,
 	],
 })
 export class ComponentsModule {}

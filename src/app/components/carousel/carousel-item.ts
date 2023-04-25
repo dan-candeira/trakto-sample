@@ -15,6 +15,7 @@ export class CarouselItem {
 	scrollTo(): void {
 		this.elementRef.nativeElement.scrollIntoView({
 			inline: 'start',
+			block: 'nearest',
 			behavior: 'smooth',
 		});
 

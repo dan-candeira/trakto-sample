@@ -63,7 +63,7 @@
 			>
 				<ng-container *ngIf="loading; else loaded">
 					<trakto-loading-spinner></trakto-loading-spinner>
-					<span> Entrando </span>
+					<span> Entrando <span aria-hidden="true">...</span> </span>
 				</ng-container>
 				<ng-template #loaded> Entrar </ng-template>
 			</button>

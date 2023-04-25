@@ -5,7 +5,9 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 	template: `
 		<a [routerLink]="link">
 			<span class="module-card__title">{{ title }}</span>
-			<img [src]="image" alt="" />
+			<div class="module-card__image-ring">
+				<img [src]="image" alt="" />
+			</div>
 		</a>
 	`,
 	encapsulation: ViewEncapsulation.None,
