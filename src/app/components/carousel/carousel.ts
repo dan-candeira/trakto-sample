@@ -77,10 +77,19 @@ export class Carousel implements OnInit, AfterContentInit, OnDestroy {
 
 	updateCarousel(): void {
 		const visibleWidth = this.elementRef.nativeElement.clientWidth;
-		const carouselItem = this.carouselItems.toArray()[0];
-		this.visibleAmount = Math.floor(
-			visibleWidth / carouselItem.elementRef.nativeElement.clientWidth
+
+		const _carouselFirstChild = this.carouselItems.toArray()[0];
+		const _carouselSecondChild = this.carouselItems.toArray()[1];
+
+		const _gap = this.calcSpaceBetween(
+			_carouselFirstChild,
+			_carouselSecondChild
 		);
+
+		const _childSize =
+			_carouselFirstChild.elementRef.nativeElement.clientWidth + _gap;
+
+		this.visibleAmount = Math.floor(visibleWidth / _childSize);
 
 		this.currentIndex = 1;
 
@@ -101,5 +110,15 @@ export class Carousel implements OnInit, AfterContentInit, OnDestroy {
 		this.currentIndex = Math.max(_index, 0);
 
 		this.carouselItems.toArray()[this.currentIndex]?.scrollTo();
+	}
+
+	calcSpaceBetween(el: CarouselItem, sibling: CarouselItem): number {
+		const _elPosition =
+			el.elementRef.nativeElement.offsetLeft +
+			el.elementRef.nativeElement.clientWidth;
+
+		const _siblingPosition = sibling.elementRef.nativeElement.offsetLeft;
+
+		return _siblingPosition - _elPosition;
 	}
 }

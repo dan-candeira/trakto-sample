@@ -1,37 +1,103 @@
 <trakto-layout data-variation="light">
 	<section class="wrapper flow">
+		<img src="assets/main-banner.jpg" alt="" />
 		<section class="content-list bg-color-neutral-white">
-			<div class="content-list__header">
-				<span class="pill" data-variation="light">
-					Semana 06/02 até 28/02
-				</span>
-				<div class="carousel-buttons">
-					<button
-						class="button"
-						data-variation="icon"
-						traktoCarouselPrevious
-						#previous
-					>
-						<span class="vh">Mostrar conteúdos anteriores</span>
-						<i class="caret-left-icon"></i>
-					</button>
-					<button
-						class="button"
-						data-variation="icon"
-						traktoCarouselNext
-						#next
-					>
-						<span class="vh">Mostrar próximos conteúdos</span>
-						<i class="caret-right-icon"></i>
-					</button>
+			<div class="content-list__heading">
+				<div class="content-list__header">
+					<span class="pill" data-variation="light">
+						Semana 06/02 até 28/02
+					</span>
+					<div class="carousel-buttons">
+						<button
+							class="button"
+							data-variation="icon"
+							traktoCarouselPrevious
+							#materialPrevious
+						>
+							<span class="vh">Mostrar conteúdos anteriores</span>
+							<i class="caret-left-icon"></i>
+						</button>
+						<button
+							class="button"
+							data-variation="icon"
+							traktoCarouselNext
+							#materialNext
+						>
+							<span class="vh">Mostrar próximos conteúdos</span>
+							<i class="caret-right-icon"></i>
+						</button>
+					</div>
 				</div>
+
+				<a
+					class="button color-brand-trakto-app"
+					data-variation="outline"
+					routerLink="/"
+				>
+					Ver todo conteúdo
+				</a>
 			</div>
 
 			<h2>Material didático</h2>
 			<p class="details">Acesse suas últimas apresentações de aula.</p>
 			<trakto-carousel
-				[carrouselNext]="next"
-				[carouselPrevious]="previous"
+				[carrouselNext]="materialNext"
+				[carouselPrevious]="materialPrevious"
+			>
+				<trakto-carousel-item
+					[attr.data-item]="i"
+					class="card"
+					*ngFor="let item of fakeData; let i = index"
+				>
+					{{ item }}
+				</trakto-carousel-item>
+			</trakto-carousel>
+		</section>
+
+		<section class="content-list bg-color-neutral-white">
+			<div class="content-list__heading">
+				<div class="content-list__header">
+					<span class="pill" data-variation="light">
+						Semana 06/02 até 28/02
+					</span>
+					<div class="carousel-buttons">
+						<button
+							class="button"
+							data-variation="icon"
+							traktoCarouselPrevious
+							#videoPrevious
+						>
+							<span class="vh">Mostrar conteúdos anteriores</span>
+							<i class="caret-left-icon"></i>
+						</button>
+						<button
+							class="button"
+							data-variation="icon"
+							traktoCarouselNext
+							#videoNext
+						>
+							<span class="vh">Mostrar próximos conteúdos</span>
+							<i class="caret-right-icon"></i>
+						</button>
+					</div>
+				</div>
+				<a
+					class="button color-brand-trakto-youtube"
+					data-variation="outline"
+					routerLink="/"
+				>
+					<i class="youtube-icon"></i>
+					<span> Abrir no youtube </span>
+				</a>
+			</div>
+
+			<h2>Vídeo aulas</h2>
+			<p class="details">
+				Complemente os estudos assistindo o conteúdo de forma dinâmica.
+			</p>
+			<trakto-carousel
+				[carrouselNext]="videoNext"
+				[carouselPrevious]="videoPrevious"
 			>
 				<trakto-carousel-item
 					[attr.data-item]="i"

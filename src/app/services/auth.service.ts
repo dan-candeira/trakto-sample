@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
+	constructor() {}
 
-  constructor() { }
+	public isAuthenticated(): boolean {
+		const token = localStorage.getItem('trakto-token');
+		// Check whether the token is expired and return
+		// true or false
+		if (token) {
+			return true;
+		}
+
+		return false;
+	}
 }

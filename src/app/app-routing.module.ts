@@ -19,6 +19,7 @@ const routes: Routes = [
 	{
 		path: 'material-didatico',
 		component: DidacticMaterialsComponent,
+		canActivate: [AuthGuard],
 	},
 	{
 		path: '**',

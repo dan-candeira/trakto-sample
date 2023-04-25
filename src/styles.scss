@@ -5,6 +5,7 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
+	line-height: 1.1;
 }
 
 main {
@@ -23,6 +24,11 @@ trakto-layout {
 	}
 }
 
+*:focus-visible {
+	outline: 3px dotted currentColor;
+	outline-offset: 3px;
+}
+
 // utilities
 @import 'scss/utilities/colors';
 @import 'scss/utilities/visually-hidden';
@@ -36,6 +42,8 @@ trakto-layout {
 @import 'scss/blocks/input';
 @import 'scss/blocks/avatar';
 @import 'scss/blocks/pill';
+@import 'scss/blocks/form-control';
+@import 'scss/blocks/toastr';
 
 // complex blocks
 @import 'scss/blocks/nav';

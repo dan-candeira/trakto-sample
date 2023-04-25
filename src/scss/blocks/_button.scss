@@ -1,20 +1,39 @@
 .button {
-	display: block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	// when class is used on link removes underline
+	text-decoration: none;
+
 	border-radius: 4px;
 
 	cursor: pointer;
 
 	&:not([data-variation='icon']) {
-		width: 100%;
-		height: 2.5rem;
-		text-align: center;
-		background-color: var(--btn-bg-color, var(--color-brand-green));
-		color: var(--btn-color, var(--color-neutral-light));
-		font-weight: 500;
+		padding: 1rem 1.5rem;
+
+		> * + * {
+			margin-left: 0.5rem;
+		}
+
+		i {
+			width: 1.4em;
+		}
 	}
 
 	&[data-variation='icon'] i {
 		width: 1.5rem;
 		height: 1.4rem;
+	}
+
+	&[data-variation='outline'] {
+		border: 1px solid currentColor;
+		background-color: transparent;
+		border-radius: 8px;
+	}
+
+	&[data-variation='fill'] {
+		font-weight: 500;
 	}
 }

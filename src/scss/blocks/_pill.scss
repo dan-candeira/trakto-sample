@@ -3,6 +3,7 @@
 	background-color: var(--pill-bg);
 	padding: 4px 8px;
 	border-radius: 2rem;
+	height: fit-content;
 
 	&[data-variation='light'] {
 		--pill-bg: var(--color-neutral-light);

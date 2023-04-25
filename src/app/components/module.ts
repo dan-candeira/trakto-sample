@@ -6,9 +6,10 @@ import { LoadingSpinner } from './loading-spinner/loading-spinner';
 import { RouterModule } from '@angular/router';
 import { IconsModule } from './icons/module';
 import { CarouselModule } from './carousel/module';
+import { ToastrComponent } from './toastr/toastr.component';
 
 @NgModule({
-	declarations: [Layout, LoadingSpinner],
+	declarations: [Layout, LoadingSpinner, ToastrComponent],
 	imports: [
 		CommonModule,
 		DropdownModule,
@@ -22,6 +23,7 @@ import { CarouselModule } from './carousel/module';
 		IconsModule,
 		DropdownModule,
 		CarouselModule,
+		ToastrComponent,
 	],
 })
 export class ComponentsModule {}

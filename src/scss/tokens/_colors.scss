@@ -1,6 +1,8 @@
 $colors: (
 	'brand-green': hsla(145, 75%, 45%, 1),
 	'brand-trakto': hsla(205, 100%, 50%, 1),
+	'brand-trakto-app': hsla(241, 100%, 63%, 1),
+	'brand-trakto-youtube': hsla(0, 100%, 50%, 1),
 	'background-dark': hsla(0, 3%, 14%, 1),
 	'background-light-blue': hsla(222, 45%, 96%, 1),
 	'neutral-cloudy': hsla(220, 23%, 55%, 1),
@@ -9,4 +11,5 @@ $colors: (
 	'neutral-darkest': hsla(219, 88%, 13%, 1),
 	'neutral-light': hsla(222, 74%, 94%, 1),
 	'neutral-white': hsla(0, 0%, 100%, 1),
+	'neutral-red': rgb(212, 12, 12),
 );

@@ -1,0 +1,18 @@
+.form-control {
+	position: relative;
+
+	.error {
+		position: absolute;
+		color: var(--color-neutral-red);
+		font-size: 0.8rem;
+		margin-top: 0.25rem;
+
+		// visibility: hidden;
+		// opacity: 0;
+
+		// &[data-visible='true'] {
+		// 	visibility: visible;
+		// 	opacity: 1;
+		// }
+	}
+}

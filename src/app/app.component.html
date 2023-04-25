@@ -1,1 +1,18 @@
 <router-outlet></router-outlet>
+
+<ng-container *ngIf="toastr$ | async as toastr">
+	{{ toastr | json }}
+	<trakto-toastr
+		[title]="toastr.title"
+		[body]="toastr.body"
+		[styleType]="toastr.styleType || 'info'"
+		[visible]="toastr.visible || false"
+	></trakto-toastr>
+</ng-container>
+<div class="vh" role="alert">
+	<ng-template
+		*ngIf="templateAlertMessage"
+		[ngTemplateOutlet]="templateAlertMessage"
+	></ng-template>
+	<span *ngIf="alertMessage">{{ alertMessage }}</span>
+</div>

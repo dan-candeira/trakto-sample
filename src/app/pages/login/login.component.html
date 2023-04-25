@@ -5,18 +5,72 @@
 			<i class="trakto-icon"></i>
 		</h1>
 		<h2>Olá, faça login em sua conta.</h2>
-		<form>
-			<label class="input" for="email">
-				<span>E-mail</span>
-				<input type="text" id="email" />
-			</label>
-			<label class="input" for="password">
-				<span>Senha</span>
-				<input type="password" id="password" />
-			</label>
-			<button class="button color-bg-brand-green" data-variation="fill">
-				Entrar
+		<form class="flow" [formGroup]="login" (ngSubmit)="submit()">
+			<div class="form-control">
+				<label class="input" for="email">
+					<span>E-mail</span>
+					<input
+						type="text"
+						id="email"
+						formControlName="email"
+						aria-required="true"
+						[attr.aria-invalid]="
+							login.controls['email'].invalid &&
+							login.controls['email'].touched
+						"
+					/>
+				</label>
+				<span class="error">
+					<ng-container
+						*ngIf="
+							login.controls['email'].invalid &&
+							login.controls['email'].touched
+						"
+					>
+						Por favor, preencha um e-mail válido.
+					</ng-container>
+				</span>
+			</div>
+			<div class="form-control">
+				<label class="input" for="password">
+					<span>Senha</span>
+					<input
+						type="password"
+						id="password"
+						formControlName="password"
+						aria-required="true"
+						[attr.aria-invalid]="
+							login.controls['password'].invalid &&
+							login.controls['password'].touched
+						"
+					/>
+				</label>
+				<span class="error">
+					<ng-container
+						*ngIf="
+							login.controls['password'].invalid &&
+							login.controls['password'].touched
+						"
+					>
+						Por favor, preencha uma senha válida.
+					</ng-container>
+				</span>
+			</div>
+			<button
+				class="button bg-color-brand-green color-neutral-white"
+				data-variation="fill"
+				type="submit"
+			>
+				<ng-container *ngIf="loading; else loaded">
+					<trakto-loading-spinner></trakto-loading-spinner>
+					<span> Entrando </span>
+				</ng-container>
+				<ng-template #loaded> Entrar </ng-template>
 			</button>
 		</form>
+	</div>
+
+	<div role="alert" class="vh" lang="pt-br">
+		{{ alertMessage }}
 	</div>
 </main>

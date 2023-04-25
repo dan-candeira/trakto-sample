@@ -21,7 +21,12 @@
 		margin-top: 1.5rem;
 	}
 
-	form > * + * {
-		margin-top: 1.5rem;
+	.flow > * + * {
+		margin-top: 1.7rem;
+	}
+
+	button {
+		// removes padding left and right from width size
+		width: calc(100% - 3rem);
 	}
 }

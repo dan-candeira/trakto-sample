@@ -1,0 +1,34 @@
+trakto-toastr {
+	display: block;
+	visibility: hidden;
+	opacity: 0;
+
+	position: fixed;
+	bottom: 2rem;
+	right: 0;
+
+	max-width: 35ch;
+	padding: 1rem 1.2rem;
+
+	> * + * {
+		margin-top: 0.5rem;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	p {
+		font-size: 1rem;
+	}
+
+	&[data-variation='error'] {
+		background-color: var(--color-neutral-red);
+		color: var(--color-neutral-white);
+	}
+
+	&[data-visible='true'] {
+		visibility: visible;
+		opacity: 1;
+	}
+}

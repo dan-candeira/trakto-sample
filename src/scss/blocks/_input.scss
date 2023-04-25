@@ -1,6 +1,7 @@
 .input {
 	display: flex;
 	flex-direction: column;
+	gap: 0.25rem;
 
 	&:focus-within {
 		span {
@@ -10,7 +11,7 @@
 
 	input {
 		border: 1px solid transparent;
-		height: 2.4rem;
+		height: 3rem;
 		padding: 1rem;
 		border-radius: 4px;
 		background-color: var(--color-neutral-white);
@@ -19,5 +20,15 @@
 		&:focus {
 			border-color: var(--color-brand-trakto);
 		}
+	}
+
+	input[aria-invalid='true']:not(:focus) {
+		border-color: var(--color-neutral-red);
+	}
+
+	.error {
+		position: absolute;
+		bottom: 0;
+		margin-top: 0.25rem;
 	}
 }
