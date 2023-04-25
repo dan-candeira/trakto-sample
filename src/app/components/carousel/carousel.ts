@@ -99,7 +99,6 @@ export class Carousel implements OnInit, AfterContentInit, OnDestroy {
 	previous(): void {
 		const _index = this.currentIndex - this.visibleAmount;
 		this.currentIndex = Math.max(_index, 0);
-		console.log(this.currentIndex, this.visibleAmount);
 
 		this.carouselItems.toArray()[this.currentIndex]?.scrollTo();
 	}

@@ -18,7 +18,7 @@ trakto-layout {
 	}
 
 	&[data-variation='dark'] {
-		--nav-bg-color: var(--color-neutral-dark);
+		--nav-bg-color: var(--color-background-dark);
 		--nav-fg-color: var(--color-neutral-light);
 	}
 }
