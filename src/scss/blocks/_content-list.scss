@@ -1,0 +1,27 @@
+.content-list {
+	padding: 3.5rem 4rem 4.5rem;
+	border-radius: 8px;
+
+	&__header {
+		display: flex;
+		gap: 0.85rem;
+		color: var(--color-neutral-cloudy);
+	}
+
+	h2,
+	h3 {
+		font-size: 1.5rem;
+		color: var(--color-neutral-dark);
+		margin-top: 1rem;
+	}
+
+	p.details {
+		font-size: 1rem;
+		margin-top: 0.5rem;
+		color: var(--color-neutral-cloudy);
+	}
+
+	.carousel {
+		margin-top: 2.8rem;
+	}
+}

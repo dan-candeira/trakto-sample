@@ -12,11 +12,17 @@ export class CarouselItem {
 		elementRef.nativeElement.classList.add('carousel-item');
 	}
 
-	setFocus(): void {
+	scrollTo(): void {
 		this.elementRef.nativeElement.scrollIntoView({
 			inline: 'start',
 			behavior: 'smooth',
 		});
+
+		// sets focus position for keyboard navigation
 		this.elementRef.nativeElement.focus({ preventScroll: true });
+	}
+
+	setFocus(): void {
+		this.elementRef.nativeElement.focus();
 	}
 }

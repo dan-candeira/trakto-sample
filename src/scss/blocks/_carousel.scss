@@ -3,3 +3,12 @@
 		outline: none;
 	}
 }
+
+.carousel-buttons {
+	display: flex;
+	gap: 1.5rem;
+
+	.button > i {
+		height: 0.8rem;
+	}
+}

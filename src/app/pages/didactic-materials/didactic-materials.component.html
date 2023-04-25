@@ -1,15 +1,46 @@
-<trakto-layout>
-	<section class="wrapper">
-		<button traktoCarouselNext #next>Next</button>
-		<button traktoCarouselPrevious #previous>Previous</button>
-		<trakto-carousel [carrouselNext]="next" [carouselPrevious]="previous">
-			<trakto-carousel-item
-				[attr.data-item]="i + 1"
-				class="card"
-				*ngFor="let item of fakeData; let i = index"
+<trakto-layout data-variation="light">
+	<section class="wrapper flow">
+		<section class="content-list bg-color-neutral-white">
+			<div class="content-list__header">
+				<span class="pill" data-variation="light">
+					Semana 06/02 até 28/02
+				</span>
+				<div class="carousel-buttons">
+					<button
+						class="button"
+						data-variation="icon"
+						traktoCarouselPrevious
+						#previous
+					>
+						<span class="vh">Mostrar conteúdos anteriores</span>
+						<i class="caret-left-icon"></i>
+					</button>
+					<button
+						class="button"
+						data-variation="icon"
+						traktoCarouselNext
+						#next
+					>
+						<span class="vh">Mostrar próximos conteúdos</span>
+						<i class="caret-right-icon"></i>
+					</button>
+				</div>
+			</div>
+
+			<h2>Material didático</h2>
+			<p class="details">Acesse suas últimas apresentações de aula.</p>
+			<trakto-carousel
+				[carrouselNext]="next"
+				[carouselPrevious]="previous"
 			>
-				{{ item + 1 }}
-			</trakto-carousel-item>
-		</trakto-carousel>
+				<trakto-carousel-item
+					[attr.data-item]="i"
+					class="card"
+					*ngFor="let item of fakeData; let i = index"
+				>
+					{{ item }}
+				</trakto-carousel-item>
+			</trakto-carousel>
+		</section>
 	</section>
 </trakto-layout>

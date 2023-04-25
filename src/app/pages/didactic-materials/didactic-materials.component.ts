@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
 	styleUrls: ['./didactic-materials.component.scss'],
 })
 export class DidacticMaterialsComponent {
-	fakeData = Array.from({ length: 10 }, (_, i) => i);
+	fakeData = Array.from({ length: 15 }, (_, i) => i);
 }

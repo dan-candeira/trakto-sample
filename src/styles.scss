@@ -11,6 +11,18 @@ main {
 	background-color: var(--main-bg-color, var(--color-background-light-blue));
 }
 
+trakto-layout {
+	&[data-variation='light'] {
+		--nav-bg-color: var(--color-neutral-white);
+		--nav-fg-color: var(--color-neutral-cloudy);
+	}
+
+	&[data-variation='dark'] {
+		--nav-bg-color: var(--color-neutral-dark);
+		--nav-fg-color: var(--color-neutral-light);
+	}
+}
+
 // utilities
 @import 'scss/utilities/colors';
 @import 'scss/utilities/visually-hidden';
@@ -23,8 +35,10 @@ main {
 @import 'scss/blocks/button';
 @import 'scss/blocks/input';
 @import 'scss/blocks/avatar';
+@import 'scss/blocks/pill';
 
 // complex blocks
 @import 'scss/blocks/nav';
 @import 'scss/blocks/dropdown';
 @import 'scss/blocks/carousel';
+@import 'scss/blocks/content-list';
