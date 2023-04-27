@@ -1,0 +1,20 @@
+:host {
+	h1 {
+		width: 10ch;
+	}
+
+	p {
+		width: 10ch;
+		font-size: 1.2rem;
+	}
+
+	main {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		justify-content: center;
+		align-items: center;
+	}
+}

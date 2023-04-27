@@ -8,4 +8,8 @@
 	&[data-variation='light'] {
 		--pill-bg: var(--color-neutral-light);
 	}
+
+	&[data-variation='cloudy'] {
+		--pill-bg: var(--color-neutral-transparent-dark);
+	}
 }

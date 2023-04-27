@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DidacticMaterialsComponent } from './pages/didactic-materials/didactic-materials.component';
 import { LoggedGuard } from './guards/logged.guard';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 const routes: Routes = [
 	{
@@ -21,6 +22,11 @@ const routes: Routes = [
 	{
 		path: 'material-didatico',
 		component: DidacticMaterialsComponent,
+		canActivate: [AuthGuard],
+	},
+	{
+		path: 'logout',
+		component: LogoutComponent,
 		canActivate: [AuthGuard],
 	},
 	{

@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { LoginService } from '@services/login.service';
 import { ToastrService } from '@services/toastr.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
 	selector: 'trakto-login',
@@ -24,8 +25,11 @@ export class LoginComponent implements OnDestroy {
 	constructor(
 		private loginService: LoginService,
 		private toastr: ToastrService,
-		private router: Router
-	) {}
+		private router: Router,
+		private titleService: Title
+	) {
+		this.titleService.setTitle('Login • Trakto');
+	}
 
 	submit(): void {
 		this.alertMessage = '';
@@ -42,7 +46,9 @@ export class LoginComponent implements OnDestroy {
 		this.subscription = this.loginService.login(_loginData).subscribe({
 			next: (resp) => {
 				console.log({ resp });
-				localStorage.setItem('access_token', resp.access_token);
+				if (resp.access_token) {
+					localStorage.setItem('access_token', resp.access_token);
+				}
 				setTimeout(() => {
 					this.loading = false;
 					this.router.navigate(['/']);

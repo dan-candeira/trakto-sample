@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
 	selector: 'trakto-main',
@@ -37,4 +38,8 @@ brand-light-orange
 			colorStyles: `--color-inner-ring: var(--color-brand-light-orange);`,
 		},
 	];
+
+	constructor(private titleService: Title) {
+		this.titleService.setTitle('Selecionar módulo • Trakto');
+	}
 }

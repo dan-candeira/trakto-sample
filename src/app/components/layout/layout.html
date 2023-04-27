@@ -21,7 +21,9 @@
 					<i class="notification-icon"></i>
 				</button>
 				<div class="notifications-dropdown" traktoDropdownContent>
-					this is my content
+					<span class="dropdown-option">
+						Você não possui nenhuma notificação
+					</span>
 				</div>
 			</trakto-dropdown>
 
@@ -30,7 +32,11 @@
 					<img class="avatar" src="assets/avatar.png" alt="" />
 					<i class="caret-down-icon"></i>
 				</button>
-				<div traktoDropdownContent>this is my content</div>
+				<div class="user-config-dropdown" traktoDropdownContent>
+					<a routerLink="/logout" class="dropdown-option">
+						Sair da conta
+					</a>
+				</div>
 			</trakto-dropdown>
 		</div>
 	</nav>

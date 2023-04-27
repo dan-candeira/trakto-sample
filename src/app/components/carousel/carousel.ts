@@ -81,6 +81,10 @@ export class Carousel implements OnInit, AfterContentInit, OnDestroy {
 		const _carouselFirstChild = this.carouselItems.toArray()[0];
 		const _carouselSecondChild = this.carouselItems.toArray()[1];
 
+		if (!_carouselFirstChild || !_carouselSecondChild) {
+			return;
+		}
+
 		const _gap = this.calcSpaceBetween(
 			_carouselFirstChild,
 			_carouselSecondChild

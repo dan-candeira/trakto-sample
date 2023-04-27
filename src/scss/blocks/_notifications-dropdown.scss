@@ -1,4 +1,11 @@
 .notifications-dropdown {
 	min-width: 30ch;
-	min-height: 15ch;
+	min-height: 5ch;
+
+	.dropdown-option {
+		font-size: 1rem;
+		display: block;
+		width: 100%;
+		padding: 0.5rem 1rem;
+	}
 }

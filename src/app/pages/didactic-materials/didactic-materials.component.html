@@ -1,4 +1,5 @@
 <trakto-layout data-variation="light">
+	<!-- <ng-container *ngIf="designList$ | async as designList"></ng-container> -->
 	<section class="wrapper flow">
 		<img src="assets/main-banner.jpg" alt="" />
 		<section class="content-list bg-color-neutral-white">
@@ -45,11 +46,37 @@
 				[carouselPrevious]="materialPrevious"
 			>
 				<trakto-carousel-item
-					[attr.data-item]="i"
 					class="card"
-					*ngFor="let item of fakeData; let i = index"
+					*ngFor="let design of designList$ | async"
 				>
-					{{ item }}
+					<a
+						class="card color-neutral-dark"
+						[href]="design.editorLink | sanitizeUrl"
+						target="_blank"
+					>
+						<div class="card__image">
+							<img
+								[src]="design.cover.low"
+								alt=""
+								loading="lazy"
+								width="308"
+								height="171"
+							/>
+							<span
+								class="pill color-neutral-white"
+								data-variation="cloudy"
+							>
+								{{ design.slidesCount }} Slides
+							</span>
+						</div>
+						<span class="card__subtitle">{{ design.title }}</span>
+					</a>
+				</trakto-carousel-item>
+				<trakto-carousel-item
+					*ngIf="designNotFound$ | async"
+					class="card none-found"
+				>
+					Nenhum design encontrado
 				</trakto-carousel-item>
 			</trakto-carousel>
 		</section>
@@ -67,7 +94,7 @@
 							traktoCarouselPrevious
 							#videoPrevious
 						>
-							<span class="vh">Mostrar conteúdos anteriores</span>
+							<span class="vh">Mostrar vídeos anteriores</span>
 							<i class="caret-left-icon"></i>
 						</button>
 						<button
@@ -76,7 +103,7 @@
 							traktoCarouselNext
 							#videoNext
 						>
-							<span class="vh">Mostrar próximos conteúdos</span>
+							<span class="vh">Mostrar próximos vídeos</span>
 							<i class="caret-right-icon"></i>
 						</button>
 					</div>
@@ -84,7 +111,8 @@
 				<a
 					class="button color-brand-trakto-youtube"
 					data-variation="outline"
-					routerLink="/"
+					href="https://www.youtube.com/@Trakto"
+					target="_blank"
 				>
 					<i class="youtube-icon"></i>
 					<span> Abrir no youtube </span>
@@ -102,9 +130,18 @@
 				<trakto-carousel-item
 					[attr.data-item]="i"
 					class="card"
-					*ngFor="let item of fakeData; let i = index"
+					*ngFor="let video of videoData$ | async; let i = index"
 				>
-					{{ item }}
+					<a
+						class="card color-neutral-dark"
+						[href]="video.videoLink | sanitizeUrl"
+						target="_blank"
+					>
+						<div class="card__image">
+							<img [src]="video.cover" alt="" loading="lazy" />
+						</div>
+						<span class="vh">{{ video.title }}</span>
+					</a>
 				</trakto-carousel-item>
 			</trakto-carousel>
 		</section>

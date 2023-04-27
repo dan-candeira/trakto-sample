@@ -13,6 +13,11 @@ import { MainComponent } from './pages/main/main.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginService } from './services/login.service';
 import { AuthService } from '@services/auth.service';
+import { JwtModule } from '@auth0/angular-jwt';
+import { LogoutComponent } from './pages/logout/logout.component';
+import { DesignService } from '@services/design.service';
+import { SanitizeUrlPipe } from './pipes/sanitize-url.pipe';
+
 export function tokenGetter() {
 	return localStorage.getItem('access_token');
 }
@@ -24,6 +29,8 @@ export function tokenGetter() {
 		LoginComponent,
 		NotFoundComponent,
 		DidacticMaterialsComponent,
+		LogoutComponent,
+		SanitizeUrlPipe,
 	],
 	imports: [
 		BrowserModule,
@@ -31,8 +38,15 @@ export function tokenGetter() {
 		ComponentsModule,
 		ReactiveFormsModule,
 		HttpClientModule,
+		JwtModule.forRoot({
+			config: {
+				tokenGetter: tokenGetter,
+				allowedDomains: ['http://locahost:4200'],
+				disallowedRoutes: [],
+			},
+		}),
 	],
-	providers: [LoginService, AuthService],
+	providers: [LoginService, AuthService, DesignService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
