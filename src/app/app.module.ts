@@ -17,6 +17,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { DesignService } from '@services/design.service';
 import { SanitizeUrlPipe } from './pipes/sanitize-url.pipe';
+import { AllDidacticMaterialsComponent } from './pages/all-didactic-materials/all-didactic-materials.component';
+import { StateService } from '@services/state.service';
 
 export function tokenGetter() {
 	return localStorage.getItem('access_token');
@@ -31,6 +33,7 @@ export function tokenGetter() {
 		DidacticMaterialsComponent,
 		LogoutComponent,
 		SanitizeUrlPipe,
+		AllDidacticMaterialsComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -46,7 +49,7 @@ export function tokenGetter() {
 			},
 		}),
 	],
-	providers: [LoginService, AuthService, DesignService],
+	providers: [LoginService, AuthService, DesignService, StateService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

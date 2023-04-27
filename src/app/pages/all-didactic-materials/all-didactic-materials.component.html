@@ -1,0 +1,59 @@
+<trakto-layout data-variation="light">
+	<div class="back-button">
+		<a
+			class="button color-neutral-cloudy"
+			data-variation="outline"
+			routerLink="/"
+		>
+			<i class="logout-icon"></i>
+			<span> Trocar de ambiente </span>
+		</a>
+	</div>
+	<section class="wrapper">
+		<h2 class="color-neutral-dark">Material didático</h2>
+		<p class="color-neutral-cloudy">
+			Acesse suas últimas apresentações de aula.
+		</p>
+		<div class="grid">
+			<article
+				*ngIf="(state$ | async)?.loading"
+				class="card color-neutral-cloudy"
+				data-variant="no-content"
+			>
+				<span> Carregando ... </span>
+			</article>
+			<article class="card" *ngFor="let design of designList$ | async">
+				<a
+					class="card color-neutral-dark"
+					[href]="design.editorLink | sanitizeUrl"
+					target="_blank"
+				>
+					<div class="card__image">
+						<img
+							[src]="design?.cover?.low"
+							alt=""
+							loading="lazy"
+							width="308"
+							height="171"
+						/>
+						<span
+							class="pill color-neutral-white"
+							data-variation="cloudy"
+							*ngIf="design?.slidesCount"
+						>
+							{{ design.slidesCount }} Slides
+						</span>
+					</div>
+					<span class="card__subtitle">{{ design.title }}</span>
+				</a>
+			</article>
+			<article
+				*ngIf="designNotFound$ | async"
+				class="card color-neutral-cloudy"
+				data-variant="no-content"
+			>
+				<span> Nenhum design encontrado </span>
+			</article>
+		</div>
+	</section>
+</trakto-layout>

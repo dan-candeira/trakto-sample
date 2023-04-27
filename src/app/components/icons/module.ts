@@ -9,6 +9,7 @@ import { CaretDownIcon } from './caret-down';
 import { CaretLeftIcon } from './caret-left';
 import { CaretRightIcon } from './caret-right';
 import { YoutubeIcon } from './youtube';
+import { LogoutIcon } from './logout';
 
 @NgModule({
 	declarations: [
@@ -20,6 +21,7 @@ import { YoutubeIcon } from './youtube';
 		CaretLeftIcon,
 		CaretRightIcon,
 		YoutubeIcon,
+		LogoutIcon,
 	],
 	exports: [
 		TraktoIcon,
@@ -30,6 +32,7 @@ import { YoutubeIcon } from './youtube';
 		CaretLeftIcon,
 		CaretRightIcon,
 		YoutubeIcon,
+		LogoutIcon,
 	],
 	imports: [CommonModule],
 })

@@ -1,0 +1,41 @@
+.card {
+	width: 19.3rem;
+	text-decoration: none;
+	border-radius: 8px;
+	flex-shrink: 0;
+
+	img {
+		border-radius: 8px;
+		width: 100%;
+		object-fit: cover;
+		height: 10.7rem;
+	}
+
+	&__subtitle {
+		display: block;
+		font-size: 1.2rem;
+		font-weight: 600;
+		line-height: 1.2;
+		margin-top: 1rem;
+	}
+
+	&__image {
+		position: relative;
+
+		.pill {
+			position: absolute;
+			bottom: 1rem;
+			left: 1rem;
+		}
+	}
+
+	&[data-variant='no-content'] {
+		height: 10.7rem;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		border: 2px solid currentColor;
+	}
+}

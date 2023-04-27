@@ -1,0 +1,23 @@
+:host {
+	// logo color
+	--fill-color: var(--color-neutral-darkest);
+
+	.wrapper {
+		min-height: calc(100vh - 5.3rem);
+		padding: 3.5rem 4.5rem;
+
+		--gutter: 3rem;
+
+		> h2 {
+			font-size: 1.5rem;
+		}
+
+		> .grid {
+			margin-top: 1.6rem;
+		}
+
+		> p {
+			margin-top: 0.6rem;
+		}
+	}
+}

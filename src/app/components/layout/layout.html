@@ -1,11 +1,15 @@
 <header class="nav">
 	<nav class="wrapper repel">
-		<h1>
-			<a routerLink="/">
-				<span class="vh">Trakto</span>
-				<i class="trakto-edu-icon"></i>
-			</a>
-		</h1>
+		<div class="nav__header">
+			<h1>
+				<a routerLink="/">
+					<span class="vh">Trakto</span>
+					<i class="trakto-edu-icon"></i>
+				</a>
+			</h1>
+
+			<ng-content select=".back-button"></ng-content>
+		</div>
 		<div class="nav__actions">
 			<span class="nav__date">
 				<i class="calendar-icon"></i>

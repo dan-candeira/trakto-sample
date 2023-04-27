@@ -7,7 +7,6 @@ import {
 	BehaviorSubject,
 	Observable,
 	catchError,
-	combineLatest,
 	map,
 	of,
 	switchMap,
@@ -15,11 +14,11 @@ import {
 } from 'rxjs';
 
 @Component({
-	selector: 'trakto-didactic-materials',
-	templateUrl: './didactic-materials.component.html',
-	styleUrls: ['./didactic-materials.component.scss'],
+	selector: 'trakto-all-didactic-materials',
+	templateUrl: './all-didactic-materials.component.html',
+	styleUrls: ['./all-didactic-materials.component.scss'],
 })
-export class DidacticMaterialsComponent {
+export class AllDidacticMaterialsComponent {
 	notFound$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 	state$: Observable<State> = this.state.getState();
 	designNotFound$: Observable<boolean> = this.notFound$.pipe(
@@ -30,7 +29,7 @@ export class DidacticMaterialsComponent {
 		})
 	);
 
-	designList$: Observable<any> = this.designService.loadLatestDesigns().pipe(
+	designList$: Observable<any> = this.designService.loadAllDesigns().pipe(
 		map(
 			(resp: {
 				data: any[];
@@ -59,45 +58,12 @@ export class DidacticMaterialsComponent {
 		})
 	);
 
-	videoData$ = of([
-		{
-			cover: 'assets/video-thumbs/adicionar-fonte-externa.jpg',
-			videoLink: 'https://youtu.be/Bws10uNmwpM',
-			title: 'Como Fazer upload de FONTE na Trakto de forma gratuita',
-		},
-		{
-			cover: 'assets/video-thumbs/comece-com-trakto.jpg',
-			videoLink: 'https://youtu.be/PNYMBdiDlps',
-			title: 'Como usar a Trakto? Tutorial gratuito para iniciantes',
-		},
-		{
-			cover: 'assets/video-thumbs/escolhendo-formato-ideal.jpg',
-			videoLink: 'https://youtu.be/Bws10uNmwpM',
-			title: 'Aprenda agora como escolher o formato ideal para o seu design com a Trakto',
-		},
-		{
-			cover: 'assets/video-thumbs/inserir-remover-fundo.jpg',
-			videoLink: 'https://youtu.be/gB8Bc8cboxQ',
-			title: 'Como remover o fundo e adicionar imagens na Trakto',
-		},
-		{
-			cover: 'assets/video-thumbs/mudar-cores-fontes.jpg',
-			videoLink: 'https://youtu.be/6d3rbLXVF3I',
-			title: 'Como escolher as melhores cores e fontes para sua arte com a Trakto',
-		},
-		{
-			cover: 'assets/video-thumbs/publicar-trakto-link.jpg',
-			videoLink: 'https://youtu.be/1oKuM-S4Tcc',
-			title: 'Aprenda agora como criar e publicar o Trakto Link',
-		},
-	]);
-
 	constructor(
 		private titleService: Title,
 		private designService: DesignService,
 		private toastr: ToastrService,
 		private state: StateService
 	) {
-		this.titleService.setTitle('Material didático • Trakto');
+		this.titleService.setTitle('Material didático - Ver todos • Trakto');
 	}
 }
